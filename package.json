@@ -62,6 +62,7 @@
   "dependencies": {
     "@wildpeaks/snapshot-dom": "1.6.0",
     "am-i-a-dependency": "1.1.2",
+    "chai": "4.3.4",
     "check-more-types": "2.24.0",
     "its-name": "1.0.0",
     "js-beautify": "1.13.13",

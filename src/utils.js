@@ -16,13 +16,13 @@ function serializeDomElement ($el) {
 }
 
 // remove React and Angular ids, which are transient
-function deleteTransientIdsFromJson(json) {
+function deleteTransientIdsFromJson (json) {
   if (json.attributes) {
     delete json.attributes['data-reactid']
 
     Object.keys(json.attributes)
-      .filter(key => key.startsWith('_ng'))
-      .forEach(attr => delete json.attributes[attr])
+    .filter((key) => key.startsWith('_ng'))
+    .forEach((attr) => delete json.attributes[attr])
     delete json.attributes['']
   }
 
@@ -35,8 +35,10 @@ function deleteTransientIdsFromJson(json) {
 const stripTransientIdAttributes = (html) => {
   const dataReactId = /data\-reactid="[\.\d\$\-abcdfef]+"/g
   const angularId = /_ng(content|host)\-[0-9a-z-]+(="")?/g
+  const reakitId = /\w[0-9a-z-]+="id\-[0-9a-z-]+"/g
   return html.replace(dataReactId, '')
-    .replace(angularId, '')
+  .replace(angularId, '')
+  .replace(reakitId, '')
 }
 
 const serializeToHTML = (el$) => {
